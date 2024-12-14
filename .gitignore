@@ -1,0 +1,7 @@
+protractor
+*.new
+*.zig
+src
+resources
+zig-out
+.zig-cache
