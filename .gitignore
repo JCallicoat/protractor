@@ -1,6 +1,7 @@
 protractor
 *.new
-*.zig
-src
+Makefile
+*.c
+*.h
+.zig-cache
 zig-out
-raylib
