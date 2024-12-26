@@ -1,5 +1,5 @@
 const std = @import("std");
-const ray = @import("raylib.zig");
+const rl = @import("raylib.zig");
 
 const protractor_png_data = @embedFile("resources/protractor.png");
 
@@ -8,25 +8,25 @@ pub fn main() !void {
     const screenWidth = 670;
     const screenHeight = 646;
 
-    // SetConfigFlags(FLAG_WINDOW_UNDECORATED);
+    // rl.SetConfigFlags(rl.FLAG_WINDOW_UNDECORATED);
 
-    ray.InitWindow(screenWidth, screenHeight, "Screen Protractor");
+    rl.InitWindow(screenWidth, screenHeight, "Screen Protractor");
 
     // make window always on top
-    ray.SetWindowState(ray.FLAG_WINDOW_TOPMOST);
+    rl.SetWindowState(rl.FLAG_WINDOW_TOPMOST);
 
     // make window non resizeable
-    ray.ClearWindowState(ray.FLAG_WINDOW_RESIZABLE);
+    rl.ClearWindowState(rl.FLAG_WINDOW_RESIZABLE);
 
     // make window 50% transparent
-    ray.SetWindowOpacity(opacity);
+    rl.SetWindowOpacity(opacity);
 
     // create our protractor texture
-    const image = ray.LoadImageFromMemory(".png", protractor_png_data, protractor_png_data.len);
-    const texture = ray.LoadTextureFromImage(image);
-    ray.UnloadImage(image);
+    const image = rl.LoadImageFromMemory(".png", protractor_png_data, protractor_png_data.len);
+    const texture = rl.LoadTextureFromImage(image);
+    rl.UnloadImage(image);
 
-    ray.SetTargetFPS(60);
+    rl.SetTargetFPS(60);
 
     // for mouse dragging the window
     // var mouseDelta = { 0 };
@@ -34,24 +34,24 @@ pub fn main() !void {
 
     var exitWindow = false;
     while (!exitWindow) {
-        if (ray.WindowShouldClose() or ray.IsKeyPressed(ray.KEY_Q))
+        if (rl.WindowShouldClose() or rl.IsKeyPressed(rl.KEY_Q))
             exitWindow = true;
 
         // handle keypresses
-        if (ray.IsKeyPressed(ray.KEY_MINUS))
+        if (rl.IsKeyPressed(rl.KEY_MINUS))
             opacity -= 0.1;
 
-        if (ray.IsKeyPressed(ray.KEY_EQUAL))
+        if (rl.IsKeyPressed(rl.KEY_EQUAL))
             opacity += 0.1;
 
-        if (ray.IsKeyPressed(ray.KEY_ZERO))
+        if (rl.IsKeyPressed(rl.KEY_ZERO))
             opacity = 0.5;
 
-        if (ray.IsKeyPressed(ray.KEY_D)) {
-            if (ray.IsWindowState(ray.FLAG_WINDOW_UNDECORATED)) {
-                ray.ClearWindowState(ray.FLAG_WINDOW_UNDECORATED);
+        if (rl.IsKeyPressed(rl.KEY_D)) {
+            if (rl.IsWindowState(rl.FLAG_WINDOW_UNDECORATED)) {
+                rl.ClearWindowState(rl.FLAG_WINDOW_UNDECORATED);
             } else {
-                ray.SetWindowState(ray.FLAG_WINDOW_UNDECORATED);
+                rl.SetWindowState(rl.FLAG_WINDOW_UNDECORATED);
             }
         }
 
@@ -69,14 +69,14 @@ pub fn main() !void {
         } else if (opacity > 1.0) {
             opacity = 1.0;
         }
-        ray.SetWindowOpacity(opacity);
+        rl.SetWindowOpacity(opacity);
 
         // draw our protractor
-        ray.BeginDrawing();
-        ray.ClearBackground(ray.BLANK);
-        ray.DrawTexture(texture, 0, 0, ray.RAYWHITE);
-        ray.EndDrawing();
+        rl.BeginDrawing();
+        rl.ClearBackground(rl.BLANK);
+        rl.DrawTexture(texture, 0, 0, rl.RAYWHITE);
+        rl.EndDrawing();
     }
 
-    ray.CloseWindow();
+    rl.CloseWindow();
 }
