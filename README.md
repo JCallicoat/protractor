@@ -26,3 +26,5 @@ zig build
 The program will be in `zigout/bin/protractor` on linux and mac, and `zigout/bin/protractor.exe` on windows.
 
 An alternate directory can be specified with `zig build -p /path/to/output/dir`, e.g., `zig build -p ~/.local`
+
+There is also a [rust programming language](https://www.rust-lang.org) port in the [rust branch](https://github.com/JCallicoat/protractor/tree/rust). See README there for instructions on building with rust.
