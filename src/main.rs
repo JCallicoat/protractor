@@ -10,7 +10,7 @@ fn main() {
 
     let (mut rl, thread) = raylib::init()
         .size(SCREEN_WIDTH, SCREEN_HEIGHT)
-        .undecorated()
+        // .undecorated()
         .title("Screen Protractor")
         .build();
 
@@ -36,8 +36,8 @@ fn main() {
     rl.set_target_fps(60);
 
     // for mouse dragging the window
-    // var mouseDelta = { 0 };
-    // var windowPosition = { 0 };
+    // let mut mouse_delta: prelude::Vector2;
+    // let mut window_position: prelude::Vector2;
 
     let mut exit_window = false;
 
@@ -66,12 +66,14 @@ fn main() {
         }
 
         // handle mouse drag
-        // windowPosition = ray.GetWindowPosition();
-        // mouseDelta = ray.GetMouseDelta();
-        // if(ray.IsMouseButtonDown(ray.MOUSE_LEFT_BUTTON)) {
-        //    ray.SetWindowPosition(mouseDelta.x + windowPosition.x, mouseDelta.y +
-        //    windowPosition.y);
-        //}
+        // window_position = rl.get_window_position();
+        // mouse_delta = rl.get_mouse_delta();
+        // if rl.is_mouse_button_pressed(MouseButton::MOUSE_BUTTON_LEFT) {
+        //     rl.set_window_position(
+        //         (mouse_delta.x + window_position.x) as i32,
+        //         (mouse_delta.y + window_position.y) as i32,
+        //     );
+        // }
 
         // update window opacity
         if opacity < 0.01 {
@@ -82,12 +84,6 @@ fn main() {
         rl.set_window_opacity(opacity);
 
         // draw our protractor
-
-        //        ray.ClearBackground(ray.BLANK);
-        //        ray.BeginDrawing();
-        //        ray.DrawTexture(texture, 0, 0, ray.RAYWHITE);
-        //        ray.EndDrawing();
-        //    }
         let mut d = rl.begin_drawing(&thread);
 
         d.clear_background(Color::BLANK);
