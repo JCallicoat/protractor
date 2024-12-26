@@ -21,7 +21,7 @@ pub fn main() !void {
     // make window 50% transparent
     ray.SetWindowOpacity(opacity);
 
-    // create out protractor texture
+    // create our protractor texture
     const image = ray.LoadImageFromMemory(".png", protractor_png_data, protractor_png_data.len);
     const texture = ray.LoadTextureFromImage(image);
     ray.UnloadImage(image);
@@ -71,9 +71,9 @@ pub fn main() !void {
         }
         ray.SetWindowOpacity(opacity);
 
-        // draw our protrator
-        ray.ClearBackground(ray.BLANK);
+        // draw our protractor
         ray.BeginDrawing();
+        ray.ClearBackground(ray.BLANK);
         ray.DrawTexture(texture, 0, 0, ray.RAYWHITE);
         ray.EndDrawing();
     }

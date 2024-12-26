@@ -9,12 +9,8 @@ pub fn build(b: *std.Build) void {
     const raylib = raylib_dep.artifact("raylib");
     b.installArtifact(raylib);
 
-    const exe = b.addExecutable(.{
-        .name = "protractor",
-        .root_source_file = b.path("src/main.zig"),
-        .target = target,
-        .optimize = optimize,
-    });
+    const exe = b.addExecutable(.{ .name = "protractor", .root_source_file = b.path("src/main.zig"), .target = target, .optimize = optimize, .pic = true });
+    exe.pie = true;
 
     exe.linkLibC();
     exe.root_module.addImport("raylib", &raylib.root_module);
