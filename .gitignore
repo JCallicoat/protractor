@@ -5,3 +5,4 @@ Makefile
 *.h
 .zig-cache
 zig-out
+target
