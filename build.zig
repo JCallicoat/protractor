@@ -15,6 +15,10 @@ pub fn build(b: *std.Build) void {
     exe.linkLibC();
     exe.root_module.addImport("raylib", &raylib.root_module);
     exe.root_module.addAnonymousImport("resources/protractor.png", .{ .root_source_file = b.path("resources/protractor.png") });
+    // including raylib.h seems to be needed when cross-compiling for windows from linux
+    if (target.query.os_tag == .windows) {
+        exe.root_module.addIncludePath(b.path("src"));
+    }
     b.installArtifact(exe);
 
     const run_cmd = b.addRunArtifact(exe);

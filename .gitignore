@@ -3,6 +3,7 @@ protractor
 Makefile
 *.c
 *.h
+!src/raylib.h
 .zig-cache
 zig-out
 target
