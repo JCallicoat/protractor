@@ -5,8 +5,8 @@ const protractor_png_data = @embedFile("resources/protractor.png");
 
 pub fn main() !void {
     var opacity: f16 = 0.5;
-    const screenWidth = 670;
-    const screenHeight = 646;
+    const screenWidth = 650;
+    const screenHeight = 650;
 
     // rl.SetConfigFlags(rl.FLAG_WINDOW_UNDECORATED);
 
