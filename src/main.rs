@@ -1,7 +1,7 @@
 use raylib::prelude::*;
 
-const SCREEN_WIDTH: i32 = 670;
-const SCREEN_HEIGHT: i32 = 646;
+const SCREEN_WIDTH: i32 = 650;
+const SCREEN_HEIGHT: i32 = 650;
 
 fn main() {
     let protractor_png_data = include_bytes!("../resources/protractor.png");
