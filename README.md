@@ -16,8 +16,7 @@ This was initially written in C, but has been ported to the [zig programming lan
 
 To build, install zig, clone this repository and run zig-build.
 
-```
-shell
+```shell
 git clone https://github.com/JCallicoat/protractor
 cd protractor
 zig build
