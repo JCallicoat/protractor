@@ -2,8 +2,8 @@
 #include <raylib.h>
 
 float opacity = 0.5;
-int screenWidth = 670;
-int screenHeight = 646;
+int screenWidth = 650;
+int screenHeight = 650;
 
 int main(void) {
   /* SetConfigFlags(FLAG_WINDOW_UNDECORATED); */
@@ -21,7 +21,7 @@ int main(void) {
 
   // create out protractor texture
   /* Image image = LoadImage("protractor.png"); */
-  Image image = LoadImageFromMemory(".png", protractor_png_data, 1769815);
+  Image image = LoadImageFromMemory(".png", protractor_png, protractor_png_len);
   Texture2D texture = LoadTextureFromImage(image);
   UnloadImage(image);
 
