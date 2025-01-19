@@ -12,18 +12,16 @@ Simple screen protractor / compass using [raylib](https://github.com/raysan5/ray
 
 Note: Mouse dragging via raylib was a little buggy (probably due to my lack of experience with raylib), so it is disabled, use the titlebar to drag the window for now.
 
-This was initially written in C, but has been ported to the [zig programming language](https://ziglang.org). There was no real need as it's a very simple program, but I wanted to play with zig some more and zig works on the three major platforms, plus it can cross-compile to any of them. The original version is the the [c branch](https://github.com/JCallicoat/protractor/tree/c) if you want to use that, but be aware it requires raylib installed externally (e.g., through a package manager) with the headers and shared library in standard locations. The zig version will download raylib and statically link it to the binary and is the preferred option.
+This was initially written in C, then ported to the [zig programming language](https://ziglang.org). There was no real need as it's a very simple program, but I wanted to play with zig some more and zig works on the three major platforms, plus it can cross-compile to any of them. The [go programming language](https://go.dev/) has similar benefits and is widely more popular and so more available, so now here is a go branch.
 
-To build, install zig, clone this repository and run zig-build.
+To build, install rust, clone this repository's rust branch and run cargo build.
 
 ```shell
-git clone https://github.com/JCallicoat/protractor
+git clone -b go https://github.com/JCallicoat/protractor
 cd protractor
-zig build
+go build
 ```
 
-The program will be in `zigout/bin/protractor` on linux and mac, and `zigout/bin/protractor.exe` on windows.
+The program will be named `protractor` on linux and mac, and `protractor.exe` on windows.
 
-An alternate directory can be specified with `zig build -p /path/to/output/dir`, e.g., `zig build -p ~/.local`
-
-There is also a [rust programming language](https://www.rust-lang.org) port in the [rust branch](https://github.com/JCallicoat/protractor/tree/rust). See README there for instructions on building with rust.
+The program can be installed to `$GOPATH/bin` (~/.go/bin by default) with `go install`.
