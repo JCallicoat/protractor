@@ -9,11 +9,14 @@ pub fn build(b: *std.Build) void {
     const raylib = raylib_dep.artifact("raylib");
     b.installArtifact(raylib);
 
-    const exe = b.addExecutable(.{ .name = "protractor", .root_source_file = b.path("src/main.zig"), .target = target, .optimize = optimize, .pic = true });
+    const exe = b.addExecutable(.{
+        .name = "protractor",
+        .root_module = b.createModule(.{ .root_source_file = b.path("src/main.zig"), .target = target, .optimize = optimize, .pic = true }),
+    });
     exe.pie = true;
 
     exe.linkLibC();
-    exe.root_module.addImport("raylib", &raylib.root_module);
+    exe.root_module.addImport("raylib", raylib.root_module);
     exe.root_module.addAnonymousImport("resources/protractor.png", .{ .root_source_file = b.path("resources/protractor.png") });
     // including raylib.h seems to be needed when cross-compiling for windows from linux
     if (target.query.os_tag == .windows) {

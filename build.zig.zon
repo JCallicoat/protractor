@@ -1,12 +1,13 @@
 .{
-    .name = "protractor",
+    .name = .protractor,
     .version = "0.0.1",
-    .minimum_zig_version = "0.13.0",
+    .minimum_zig_version = "0.14.0",
+    .fingerprint = 0x1ec74dbc16dc5f1f,
 
     .dependencies = .{
         .raylib = .{
-            .url = "https://github.com/raysan5/raylib/archive/refs/tags/5.5.zip",
-            .hash = "1220d93782859726c2c46a05450615b7edfc82b7319daac50cbc7c3345d660b022d7",
+            .url = "https://github.com/raysan5/raylib/archive/refs/heads/master.zip",
+            .hash = "1220e686dcda2123ccaa6923b3b8359828e884e07d9804e008ce0d557edcca3c4ee8",
         },
     },
     .paths = .{""},
